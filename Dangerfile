@@ -173,15 +173,14 @@ def lint_commits(commits)
 
       Here is an example of a good commit message:
 
-          feat(virtualservice): Add Istio VirtualService template
+          feat(terraform): Add new bastion module
 
-          Added Istio VirtualService template to the common library. It
-          gives options to match prefix, have internal or external host
-          name and map to the ingress gateway.
+          Adding new Bastion module to create a single single point of entry into
+          infrastructure.
 
       This is an example of a bad commit message:
 
-          added virtualservice
+          added bastion module
 
     MARKDOWN
   end
