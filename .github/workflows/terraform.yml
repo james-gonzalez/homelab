@@ -1,0 +1,19 @@
+
+name: 'Terraform CI'
+on:
+  pull_request:
+
+jobs:
+  terragrunt_linting:
+    name: 'Terragrunt'
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Terragrunt
+      uses: autero1/action-terragrunt@v0.1.0
+      with:
+        terragrunt_version: 0.23.29
+    - name: Interact with Terragrunt
+      run: terragrunt hclfmt --terragrunt-check
