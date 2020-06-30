@@ -173,14 +173,13 @@ def lint_commits(commits)
 
       Here is an example of a good commit message:
 
-          feat(terraform): Add new bastion module
+          feat(terraform): Add new Terraform module
 
-          Adding new Bastion module to create a single single point of entry into
-          infrastructure.
+          Added a new terraform module to create vpc
 
       This is an example of a bad commit message:
 
-          added bastion module
+          added terraform module
 
     MARKDOWN
   end
@@ -244,19 +243,5 @@ if git.commits.length > 10
   warn(
     'This Pull Request includes more than 10 commits. ' \
       'Please rebase these commits into a smaller number of commits.'
-  )
-end
-
-def branch_name(text)
-  dtext = text.to_s.downcase
-  dtext.match(/^dce-\d+\/\w+/)
-end
-
-jira_branch_name = branch_name(branch_for_head)
-if !jira_branch_name
-  warn(
-    'The branch name does not match the standards. '\
-    'Please create a Jira ticket and create a branch like <JIRA-TICKET-ID>/<FEATURE-BUG-NAME>. ' \
-    'Example: dce-007/delete-cluster'
   )
 end
